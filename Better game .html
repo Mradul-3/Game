@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+
+
+    <title>Better Game</title>
+
+    <style>
+
+        body {
+            background-color: rgba(18, 223, 28, 0.404);
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        ul {
+            font-family: 'cursive';
+            color: rgba(0, 0, 0, 0.562);
+            list-style: none;
+        }
+
+        #big_wrap {
+            position: absolute;
+            top: 20%;
+            left: 30%;
+            /* background-color: aqua; */
+        }
+
+        .wrapper {
+            display: flex;
+            align-items: center;
+            /* filter: blur(); */
+
+        }
+
+        .box {
+            height: 70px;
+            width: 70px;
+            background-color: rgb(41, 138, 46);
+            border-radius: 10px;
+            margin: 1px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            padding: 0px 0px 0px 17px;
+            box-sizing: border-box;
+            font-size: x-large;
+        }
+
+
+        .box:hover {
+            background-color: rgb(0, 255, 13);
+
+        }
+
+        #result {
+            height: auto;
+            width: auto;
+            padding: 30px;
+            background-color: chartreuse;
+            position: absolute;
+            bottom: 20px;
+            left: 45%;
+            font-family: cursive;
+            opacity: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <h1>Try Your Luck</h1>
+    <ul>
+        <li>Do not click unnecessarily.</li>
+        <li>This grid has 48 boxes. You have to choose 43 correct ones to win the game. </li>
+    </ul>
+
+    <div id="big_wrap">
+
+        <div class='wrapper'>
+            <div class="box" id="b1"></div>
+            <div class="box" id="b2"></div>
+            <div class="box" id="b3"></div>
+            <div class="box" id="b4"></div>
+            <div class="box" id="b5"></div>
+            <div class="box" id="b6"></div>
+            <div class="box" id="b7"></div>
+            <div class="box" id="b8"></div>
+        </div>
+
+        <div class='wrapper'>
+            <div class="box" id="b9"></div>
+            <div class="box" id="b10"></div>
+            <div class="box" id="b11"></div>
+            <div class="box" id="b12"></div>
+            <div class="box" id="b13"></div>
+            <div class="box" id="b14"></div>
+            <div class="box" id="b15"></div>
+            <div class="box" id="b16"></div>
+        </div>
+
+        <div class='wrapper'>
+            <div class="box" id="b17"></div>
+            <div class="box" id="b18"></div>
+            <div class="box" id="b19"></div>
+            <div class="box" id="b20"></div>
+            <div class="box" id="b21"></div>
+            <div class="box" id="b22"></div>
+            <div class="box" id="b23"></div>
+            <div class="box" id="b24"></div>
+        </div>
+
+        <div class='wrapper'>
+            <div class="box" id="b25"></div>
+            <div class="box" id="b26"></div>
+            <div class="box" id="b27"></div>
+            <div class="box" id="b28"></div>
+            <div class="box" id="b29"></div>
+            <div class="box" id="b30"></div>
+            <div class="box" id="b31"></div>
+            <div class="box" id="b32"></div>
+        </div>
+
+        <div class='wrapper'>
+            <div class="box" id="b33"></div>
+            <div class="box" id="b34"></div>
+            <div class="box" id="b35"></div>
+            <div class="box" id="b36"></div>
+            <div class="box" id="b37"></div>
+            <div class="box" id="b38"></div>
+            <div class="box" id="b39"></div>
+            <div class="box" id="b40"></div>
+        </div>
+
+        <div class='wrapper'>
+            <div class="box" id="b41"></div>
+            <div class="box" id="b42"></div>
+            <div class="box" id="b43"></div>
+            <div class="box" id="b44"></div>
+            <div class="box" id="b45"></div>
+            <div class="box" id="b46"></div>
+            <div class="box" id="b47"></div>
+            <div class="box" id="b48"></div>
+        </div>
+
+        <!-- <div class='wrapper'>
+            <div class="box" id="b49"></div>
+            <div class="box" id="b50"></div>
+            <div class="box" id="b51"></div>
+            <div class="box" id="b52"></div>
+            <div class="box" id="b53"></div>
+            <div class="box" id="b54"></div>
+            <div class="box" id="b55"></div>
+            <div class="box" id="b56"></div>
+        </div> -->
+
+        <!-- <div class='wrapper'>
+            <div class="box" id="b57"></div>
+            <div class="box" id="b58"></div>
+            <div class="box" id="b59"></div>
+            <div class="box" id="b60"></div>
+            <div class="box" id="b61"></div>
+            <div class="box" id="b62"></div>
+            <div class="box" id="b63"></div>
+            <div class="box" id="b64"></div>
+        </div> -->
+
+    </div>
+
+    <div id="result"></div>
+
+    <script>
+
+        document.getElementById('b1').onclick = function () {
+            document.getElementById('b1').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b1').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b2').onclick = function () {
+            document.getElementById('b2').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b2').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b3').onclick = function () {
+            document.getElementById('b3').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b3').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b4').onclick = function () {
+            document.getElementById('b4').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b4').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b5').onclick = function () {
+            document.getElementById('b5').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b5').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b6').onclick = function () {
+            document.getElementById('b6').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b6').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b7').onclick = function () {
+            document.getElementById('b7').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b7').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b8').onclick = function () {
+            document.getElementById('b8').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b8').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b9').onclick = function () {
+            document.getElementById('b9').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b9').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b10').onclick = function () {
+            document.getElementById('b10').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b10').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b11').onclick = function () {
+            document.getElementById('b11').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b11').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b12').onclick = function () {
+            document.getElementById('b12').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b12').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b13').onclick = function () {
+            document.getElementById('b13').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b13').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b14').onclick = function () {
+            document.getElementById('b14').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b14').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b15').onclick = function () {
+            document.getElementById('b15').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b15').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b16').onclick = function () {
+            document.getElementById('b16').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b16').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b17').onclick = function () {
+            document.getElementById('b17').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b17').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b18').onclick = function () {
+            document.getElementById('b18').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b18').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b19').onclick = function () {
+            document.getElementById('b19').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b19').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b20').onclick = function () {
+            document.getElementById('b20').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b20').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b21').onclick = function () {
+            document.getElementById('b21').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b21').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b22').onclick = function () {
+            document.getElementById('b22').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b22').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b23').onclick = function () {
+            document.getElementById('b23').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b23').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b24').onclick = function () {
+            document.getElementById('b24').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b24').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b25').onclick = function () {
+            document.getElementById('b25').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b25').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b26').onclick = function () {
+            document.getElementById('b26').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b26').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b27').onclick = function () {
+            document.getElementById('b27').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b27').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b28').onclick = function () {
+            document.getElementById('b28').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b28').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b29').onclick = function () {
+            document.getElementById('b29').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b29').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b30').onclick = function () {
+            document.getElementById('b30').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b30').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b31').onclick = function () {
+            document.getElementById('b31').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b31').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b32').onclick = function () {
+            document.getElementById('b32').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b32').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b33').onclick = function () {
+            document.getElementById('b33').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b33').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b34').onclick = function () {
+            document.getElementById('b34').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b34').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b35').onclick = function () {
+            document.getElementById('b35').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b35').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b36').onclick = function () {
+            document.getElementById('b36').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b36').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b37').onclick = function () {
+            document.getElementById('b37').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b37').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b38').onclick = function () {
+            document.getElementById('b38').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b38').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b39').onclick = function () {
+            document.getElementById('b39').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b39').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b40').onclick = function () {
+            document.getElementById('b40').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b40').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b41').onclick = function () {
+            document.getElementById('b41').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b41').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b42').onclick = function () {
+            document.getElementById('b42').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b42').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b43').onclick = function () {
+            document.getElementById('b43').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b43').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b44').onclick = function () {
+            document.getElementById('b44').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b44').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b45').onclick = function () {
+            document.getElementById('b45').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b45').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b46').onclick = function () {
+            document.getElementById('b46').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b46').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b47').onclick = function () {
+            document.getElementById('b47').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b47').innerHTML = '&#128512;'
+        }
+
+        document.getElementById('b48').onclick = function () {
+            document.getElementById('b48').style.backgroundColor = "rgb(0,255,13,0.8)"
+            document.getElementById('b48').innerHTML = '&#128512;'
+        }
+
+        // document.getElementById('b49').onclick = function () {
+        //     document.getElementById('b49').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b49').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b50').onclick = function () {
+        //     document.getElementById('b50').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b50').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b51').onclick = function () {
+        //     document.getElementById('b51').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b51').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b52').onclick = function () {
+        //     document.getElementById('b52').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b52').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b53').onclick = function () {
+        //     document.getElementById('b53').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b53').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b54').onclick = function () {
+        //     document.getElementById('b54').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b54').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b55').onclick = function () {
+        //     document.getElementById('b55').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b55').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b56').onclick = function () {
+        //     document.getElementById('b56').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b56').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b57').onclick = function () {
+        //     document.getElementById('b57').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b57').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b58').onclick = function () {
+        //     document.getElementById('b58').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b58').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b59').onclick = function () {
+        //     document.getElementById('b59').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b59').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b60').onclick = function () {
+        //     document.getElementById('b60').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b60').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b61').onclick = function () {
+        //     document.getElementById('b61').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b61').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b62').onclick = function () {
+        //     document.getElementById('b62').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b62').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b63').onclick = function () {
+        //     document.getElementById('b63').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b63').innerHTML = '&#128512;'
+        // }
+
+        // document.getElementById('b64').onclick = function () {
+        //     document.getElementById('b64').style.backgroundColor = "rgb(0,255,13,0.8)"
+        //     document.getElementById('b64').innerHTML = '&#128512;'
+        // }
+
+
+        let count = 0;
+
+
+        a = Math.floor(Math.random() * 48);
+        b = Math.floor(Math.random() * 48);
+        c = Math.floor(Math.random() * 48);
+        d = Math.floor(Math.random() * 48);
+        e = Math.floor(Math.random() * 48);
+       
+        // console.log(a, b, c, d, e);
+
+        document.getElementById('b' + (a+1)).onclick = function () {
+         alert('You Lost');
+            location.reload();
+        }
+
+        document.getElementById('b' + (b+1)).onclick = function () {
+            alert('You Lost');
+            location.reload();
+        }
+
+        document.getElementById('b' + (c+1)).onclick = function () {
+            alert('You Lost');
+            location.reload();
+        }
+
+        document.getElementById('b' + (d+1)).onclick = function () {
+            alert('You Lost'); 
+            location.reload();
+        }
+
+        document.getElementById('b' + (e+1)).onclick = function () {
+            alert('You Lost');
+             location.reload();
+        }
+
+
+        document.getElementById('big_wrap').addEventListener('click', function(){
+            count = count + 1 ;
+            // console.log(count);
+            if (count == 43) {
+                // document.getElementById('result').innerHTML = 'You Win !!'
+                // document.getElementById('result').style.opacity = '1';
+                alert('You win !!')
+                location.reload();
+            }
+        })
+
+    </script>
+
+</body>
+
+</html>
